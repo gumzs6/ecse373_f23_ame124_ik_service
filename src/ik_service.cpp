@@ -11,7 +11,7 @@ bool pose_ik(ik_service::PoseIK::Request &req, ik_service::PoseIK::Response &res
     num_sol = ur_kinematics::inverse(&T[0][0], (double *)&q_sols[0][0], 0.0);
 
     res.num_sols = num_sol;
-    ROS_INFO("pose_ik service called.");
+    ROS_INFO("Service called.");
 
     
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     ros::NodeHandle n;
 
     ros::ServiceServer service = n.advertiseService("pose_ik", pose_ik);
-    ROS_INFO("Ready for pose");
+    ROS_INFO("Ready for call.");
     ros::spin();
 
     return 0;

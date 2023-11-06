@@ -20,7 +20,10 @@ int main(int argc, char **argv)
     if (client.call(ik_pose))
     {
         ROS_INFO("Call to ik_service returned [%i] solutions", ik_pose.response.num_sols);
-        ROS_INFO("One set of joint angles is [%i]:", ik_pose.response.joint_solutions);
+
+
+        ROS_INFO("One solution:");
+        ROS_INFO_STREAM(ik_pose.response.joint_solutions.front());
     }
     else
     {
