@@ -24,8 +24,6 @@ int main(int argc, char **argv)
 
         ROS_INFO("One solution:");
         ROS_INFO_STREAM(ik_pose.response.joint_solutions.front());
-
-
     }
     else
     {

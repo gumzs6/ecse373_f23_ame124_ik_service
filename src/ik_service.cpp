@@ -6,8 +6,11 @@ bool pose_ik(ik_service::PoseIK::Request &req, ik_service::PoseIK::Response &res
 {
 
     int num_sol;
-    float q_sols[8][6];
-    double T[4][4] = {{0.0, -1.0, 0.0, req.part_pose.position.x}, {0.0, 0.0, 1.0, req.part_pose.position.y}, {-1.0, 0.0, 0.0, req.part_pose.position.z}, {0.0, 0.0, 0.0, 1.0}};
+    double q_sols[8][6];
+    double T[4][4] = {{0.0, -1.0, 0.0, req.part_pose.position.x}, 
+    {0.0, 0.0, 1.0, req.part_pose.position.y}, 
+    {-1.0, 0.0, 0.0, req.part_pose.position.z}, 
+    {0.0, 0.0, 0.0, 1.0}};
     num_sol = ur_kinematics::inverse(&T[0][0], (double *)&q_sols[0][0], 0.0);
     
     
@@ -19,7 +22,6 @@ bool pose_ik(ik_service::PoseIK::Request &req, ik_service::PoseIK::Response &res
         {
             res.joint_solutions[idx].joint_angles[jdx] = q_sols[idx][jdx];
         }
-        
     }
 
     ROS_INFO("Service called.");
