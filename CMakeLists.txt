@@ -164,7 +164,7 @@ add_dependencies(ik_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED
 # )
 
 # Remove libraries for the UR3 and UR5 arms
-list(FILTER catkin_LIBRARIES EXCLUDE REGEX .*libur[3][5].*)
+list(FILTER catkin_LIBRARIES EXCLUDE REGEX .*libur[3|5].*)
 
 # service
  target_link_libraries(ik_client
